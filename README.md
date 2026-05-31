@@ -1,100 +1,141 @@
 # 📊 SQL Sales Analysis Project
 
-An SQL-based data analysis project performed on an E-Commerce Sales dataset to extract meaningful business insights using SQL queries.
+An SQL-based data analysis project performed on the Sample Superstore dataset to extract meaningful business insights using MySQL.
 
 ---
 
-# 🚀 Project Overview
+## 🚀 Project Overview
 
-This project focuses on analyzing sales, profit, customers, and product performance using SQL.
-
-The goal of this project is to demonstrate:
-- SQL querying skills
-- Data analysis techniques
-- Business insight generation
-- Data filtering and aggregation
+This project focuses on analyzing sales, profit, customer behavior, and regional performance using SQL queries. The goal is to demonstrate practical SQL skills used in real-world business analysis.
 
 ---
 
-# 🛠️ Tools Used
+## 🛠️ Tools & Technologies
 
 - MySQL
 - SQL
-- CSV Dataset
+- Sample Superstore Dataset
+- GitHub
 
 ---
 
-# 📂 Dataset Information
+## 📚 SQL Skills Demonstrated
 
-The dataset contains:
-- Sales data
-- Customer details
-- Product categories
-- Profit information
-- Regional sales information
+- Aggregate Functions (`SUM`, `AVG`, `ROUND`)
+- GROUP BY
+- ORDER BY
+- LIMIT
+- Date Functions
+- Business KPI Analysis
+- Sales & Profit Analysis
 
 ---
 
-# 🔥 SQL Queries Performed
+## 📈 Business Questions Solved
 
-## 1️⃣ Total Sales
-
+### 1. Total Revenue Generated
 ```sql
-SELECT SUM(Sales) AS Total_Sales
+SELECT ROUND(SUM(Sales),2) AS Total_Revenue
 FROM superstore;
 ```
 
----
-
-## 2️⃣ Profit by Category
-
+### 2. Top 10 Products by Sales
 ```sql
-SELECT Category,
-       SUM(Profit) AS Total_Profit
+SELECT
+    `Product Name`,
+    ROUND(SUM(Sales),2) AS Total_Sales
 FROM superstore
-GROUP BY Category;
+GROUP BY `Product Name`
+ORDER BY Total_Sales DESC
+LIMIT 10;
+```
+
+### 3. Sales by Category
+```sql
+SELECT
+    Category,
+    ROUND(SUM(Sales),2) AS Total_Sales
+FROM superstore
+GROUP BY Category
+ORDER BY Total_Sales DESC;
+```
+
+### 4. Regional Performance
+```sql
+SELECT
+    Region,
+    ROUND(SUM(Sales),2) AS Total_Sales,
+    ROUND(SUM(Profit),2) AS Total_Profit
+FROM superstore
+GROUP BY Region
+ORDER BY Total_Sales DESC;
+```
+
+### 5. Top Customers by Sales
+```sql
+SELECT
+    `Customer Name`,
+    ROUND(SUM(Sales),2) AS Total_Sales
+FROM superstore
+GROUP BY `Customer Name`
+ORDER BY Total_Sales DESC
+LIMIT 10;
 ```
 
 ---
 
-## 3️⃣ Region-wise Sales
+# 📷 Project Screenshots
 
-```sql
-SELECT Region,
-       SUM(Sales) AS Total_Sales
-FROM superstore
-GROUP BY Region;
-```
+## Total Revenue
+![Total Revenue](screenshots/total_revenue.png)
 
 ---
 
-# 📌 Key Insights
-
-- Technology category generated high profits
-- Certain regions contributed more sales revenue
-- SQL helped simplify business analysis and reporting
+## Top 10 Products
+![Top Products](screenshots/top_products.png)
 
 ---
 
-# 💡 Skills Demonstrated
-
-- SQL Queries
-- Data Aggregation
-- GROUP BY
-- Business Analysis
-- Data Filtering
-- Analytical Thinking
+## Sales by Category
+![Sales by Category](screenshots/sales_by_category.png)
 
 ---
 
-# 📂 Project Structure
+## Regional Performance
+![Regional Performance](screenshots/regional_performance.png)
 
-```plaintext
+---
+
+## Monthly Sales Trend
+![Monthly Sales Trend](screenshots/monthly_sales_trend.png)
+
+---
+
+# 🎯 Key Insights
+
+- Technology products generated the highest sales revenue.
+- Certain regions consistently outperformed others in both sales and profitability.
+- A small number of products contributed significantly to overall revenue.
+- Monthly sales trends highlighted variations in customer demand.
+- Customer purchasing behavior showed concentration among top buyers.
+
+---
+
+# 📂 Repository Structure
+
+```text
 sql-sales-analysis/
 │
 ├── README.md
 ├── queries.sql
-└── dataset.csv
+├── Sample - Superstore.csv
+│
+└── screenshots/
+    ├── total_revenue.png
+    ├── top_products.png
+    ├── sales_by_category.png
+    ├── regional_performance.png
+    └── monthly_sales_trend.png
 ```
 
 ---
@@ -103,9 +144,14 @@ sql-sales-analysis/
 
 ## Aryan Prasad
 
-- 💻 GitHub: https://github.com/thearyanprasad
-- 🔗 LinkedIn: https://www.linkedin.com/in/prasadaryan9354
+Aspiring Data Analyst | Power BI | SQL | Python | Excel
+
+🔗 GitHub: https://github.com/thearyanprasad
+
+🔗 Portfolio: https://thearyanprasad.github.io
+
+🔗 LinkedIn: https://www.linkedin.com/in/prasadaryan9354
 
 ---
 
-⭐ If you found this project useful, consider giving it a star!
+⭐ If you found this project useful, consider giving it a star.
